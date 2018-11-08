@@ -1,6 +1,14 @@
-#main {
-    /* add CSS here */
+#main
+{
+    background-color: #f3fbfd;
+    max-width: 406px;
+    margin: auto;
+    font-style: italic;
 }
-.pet {
-    /* add CSS here */
+.pet
+{
+    cursor: pointer;
+    border-radius: 14px;
+    border: dotted #fa0409;
+    box-shadow: 8px 7px 8px 4px;
 }
