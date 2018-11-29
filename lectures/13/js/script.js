@@ -19,7 +19,22 @@ var questions = [{
         "for",
         "none of the above"],
     correctAnswer : 1
-}];
+}, {
+        question : "which programming language is used to make a website responsive?",
+        choices : [ "select",
+            "javascript",
+            "PHP",
+            "bootstrap"],
+        correctAnswer : 1
+},
+    {
+        question : "Why we use CSS in our website?",
+        choices : [ "select",
+            "for styling",
+            "to make it responsive",
+            "for functioning"],
+        correctAnswer : 1
+    }];
 
 var currentQuestion = 0;
 var correctAnswers = 0;
@@ -27,11 +42,16 @@ var quizOver = false;
 displayCurrentQuestion();
 document.getElementById("quiz-message").style.display = 'none';
 function displayNext() {
-    /*Write your code here */
+
 }
 
-function displayCurrentQuestion() {
-    /*Write your code here */
+function displayCurrentQuestion()
+{
+        document.getElementById("question").innerHTML=questions[0].question;
+     var z=  document.getElementById("choice-list");
+    for(var i=0; i<4; i++){
+      z.innerHTML+='<li>'+'<input type="radio" name="checked">'+questions[currentQuestion].choices[i]+'</li>';
+    }
 }
 
 function resetQuiz() {
