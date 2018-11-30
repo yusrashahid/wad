@@ -25,7 +25,7 @@ var questions = [{
             "javascript",
             "PHP",
             "bootstrap"],
-        correctAnswer : 1
+        correctAnswer : 2
 },
     {
         question : "Why we use CSS in our website?",
@@ -33,7 +33,7 @@ var questions = [{
             "for styling",
             "to make it responsive",
             "for functioning"],
-        correctAnswer : 1
+        correctAnswer : 0
     }];
 
 var currentQuestion = 0;
@@ -42,17 +42,48 @@ var quizOver = false;
 displayCurrentQuestion();
 document.getElementById("quiz-message").style.display = 'none';
 function displayNext() {
-
-}
-
-function displayCurrentQuestion()
-{
-        document.getElementById("question").innerHTML=questions[0].question;
-     var z=  document.getElementById("choice-list");
-    for(var i=0; i<4; i++){
-      z.innerHTML+='<li>'+'<input type="radio" name="checked">'+questions[currentQuestion].choices[i]+'</li>';
+    if(currentQuestion===2)
+    {
+        displayScore();
     }
+    alert(correctAnswers);
+    currentQuestion++;
+    displayCurrentQuestion();
 }
+
+
+function displayCurrentQuestion() {
+    document.getElementById("question").innerHTML = questions[0].question;
+    var z = document.getElementById("choice-list");
+    for (var i = 0; i < 4; i++) {
+        z.innerHTML += '<li>' + '<input type="radio" name="checked">' + questions[currentQuestion].choices[i] + '</li>';
+    }
+    if (document.getElementById("opt1").checked) {
+        if (questions[currentQuestion].correctAnswer === document.getElementById("opt1").value) {
+            correctAnswers++;
+        }
+    }
+    else if (document.getElementById("opt2").checked) {
+        if (questions[currentQuestion].correctAnswer === document.getElementById("opt2").value) {
+            correctAnswers++;
+        }
+    }
+    else if (document.getElementById("opt3").checked) {
+        if (questions[currentQuestion].correctAnswer === document.getElementById("opt3").value) {
+            correctAnswers++;
+        }
+    }
+    else if (document.getElementById("opt4").checked) {
+        if (questions[currentQuestion].correctAnswer === document.getElementById("opt4").value) {
+            correctAnswers++;
+        }
+    }
+    else {
+        displayCurrentQuestion();
+    }
+
+}
+
 
 function resetQuiz() {
     currentQuestion = 0;
