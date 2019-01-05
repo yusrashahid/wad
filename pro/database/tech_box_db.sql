@@ -28,22 +28,19 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `brands` (
-  `brand_id` int(100) NOT NULL,
-  `brand_title` varchar(255) NOT NULL
+  `B_id` int(200) NOT NULL,
+  `B_title` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `brands`
 --
 
-INSERT INTO `brands` (`brand_id`, `brand_title`) VALUES
-(1, 'Apple'),
-(2, 'Dell'),
-(3, 'Samsung'),
-(4, 'Toshiba'),
-(5, 'HP'),
-(6, 'Oppo'),
-(7, 'Sony');
+INSERT INTO `brands` (`B_id`, `B_title`) VALUES
+(1, 'samsung'),
+(2, 'oppo'),
+(3, 'HTC'),
+(4, 'Huawie');
 
 -- --------------------------------------------------------
 
@@ -52,8 +49,8 @@ INSERT INTO `brands` (`brand_id`, `brand_title`) VALUES
 --
 
 CREATE TABLE `categories` (
-  `cat_id` int(100) NOT NULL,
-  `cat_title` varchar(255) NOT NULL
+  `cat_id` int(200) NOT NULL,
+  `cat_title` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -62,12 +59,8 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
 (1, 'Laptops'),
-(2, 'Computers'),
-(5, 'Tablets'),
-(6, 'Watches'),
-(7, 'Cameras'),
-(8, 'iPads'),
-(9, 'Projectors');
+(2, 'Mobiles'),
+(5, 'Computers');
 
 --
 -- Indexes for dumped tables
@@ -77,7 +70,7 @@ INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
 -- Indexes for table `brands`
 --
 ALTER TABLE `brands`
-  ADD PRIMARY KEY (`brand_id`);
+  ADD PRIMARY KEY (`B_id`);
 
 --
 -- Indexes for table `categories`
@@ -93,13 +86,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `brand_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `B_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `cat_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

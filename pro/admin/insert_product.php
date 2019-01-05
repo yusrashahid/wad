@@ -1,5 +1,5 @@
 <?php
-require_once "db_connection.php";
+require_once "functions2.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,11 +42,9 @@ require_once "db_connection.php";
                     </div>
                     <select class="form-control" id="pro_cat" name="pro_cat">
                         <option>Select Category</option>
-                        <option>Mobile</option>
-                        <option>Laptop</option>
-                        <option>Tablet</option>
-                        <option>Watch</option>
-                        <option>Camera</option>
+                        <?php
+                            getCats();
+                        ?>
                     </select>
                 </div>
             </div>
@@ -62,12 +60,9 @@ require_once "db_connection.php";
                     </div>
                     <select class="form-control" id="pro_brand" name="pro_brand">
                         <option>Select Brand</option>
-                        <option>Apple</option>
-                        <option>Samsung</option>
-                        <option>Oppo</option>
-                        <option>Dell</option>
-                        <option>HP</option>
-                        <option>Sony</option>
+                        <?php
+                            getBrands();
+                        ?>
                     </select>
                 </div>
             </div>
