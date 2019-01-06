@@ -1,6 +1,3 @@
-<?php
-require_once "functions2.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,11 +12,43 @@ require_once "functions2.php";
             font-family: 'Old Standard TT', serif;
         }
     </style>
+    <?php
+    require "functions2.php";
+    if(!$con)
+    {
+        echo "connection failed";
+    }
+    if(!mysqli_select_db($con,'tech_box_db'))
+    {
+        echo "database not selected";
+    }
+if(isset($_POST['pro_insert']))
+{
+    $p_title = $_POST['pro_title'];
+    $p_cat = $_POST['pro_cat'];
+    $p_brand = $_POST['pro_brand'];
+    $p_price = $_POST['pro_price'];
+    $p_desc = $_POST['pro_desc'];
+    $p_kw = $_POST['pro_kw'];
+
+    $insert_pro="INSERT INTO products(P_title,P_cat,P_brand,P_price,P_desc,P_keywords)
+              VALUES('$p_title','$p_cat','$p_brand','$p_price','$p_desc','$p_kw')";
+
+    if(!mysqli_query($con,$insert_pro))
+    {
+        echo "NOT INSERTED";
+    }
+    else {
+        echo"INSERTED";
+    }
+}
+
+?>
 </head>
 <body>
 <div class="container">
     <h1 class="text-center my-4"><i class="fas fa-plus fa-md"></i> <span class="d-none d-sm-inline"> Add New </span> Product </h1>
-    <form>
+    <form action="insert_product.php" method="post">
         <div class="row">
             <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-2 ">
                 <label for="pro_title" class="float-md-right"> <span class="d-sm-none d-md-inline"> Product </span> Title:</label>
@@ -118,7 +147,7 @@ require_once "functions2.php";
         <div class="row my-3">
             <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-2 mt-auto"></div>
             <div class="col-sm-9 col-md-8 col-lg-4 col-xl-4">
-                <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-plus"></i> Insert Now </button>
+                <button type="submit" class="btn btn-primary btn-block" name="pro_insert"><i class="fas fa-plus"></i> Insert Now </button>
             </div>
         </div>
     </form>
