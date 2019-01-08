@@ -15,22 +15,17 @@
         }
     </style>
     <?php
-    /**
-     * Created by PhpStorm.
-     * User: l1f16bscs0409
-     * Date: 1/8/2019
-     * Time: 2:13 PM
-     */
+
     require_once "db_connection.php";
-    if(isset($_POST['insert_pro'])){
+    if(isset($_GET['insert_pro'])){
         //getting text data from the fields
-        $pro_cat = $_POST['pro_cat'];
+        $cat_title = $_POST['cat_title'];
         //getting image from the field
 
 
-        $insert_product = "insert into products (pro_cat) 
-                  VALUES ('$pro_cat');";
-        $insert_pro = mysqli_query($con, $insert_product);
+        $insert_cat = "insert into categories(cat_title) 
+                  VALUES ('$cat_title');";
+        $insert_pro = mysqli_query($con, $insert_cat);
 
     }
     ?>
@@ -41,14 +36,14 @@
     <form action="insert_product.php" method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-2 ">
-                <label for="pro_cat" class="float-md-right"> <span class="d-sm-none d-md-inline"> Product </span> Category:</label>
+                <label for="pro_cat" class="float-md-right"> <span class="d-sm-none d-md-inline"> Category </span> Title:</label>
             </div>
             <div class="col-sm-9 col-md-8 col-lg-4 col-xl-4">
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fas fa-file-signature"></i></div>
                     </div>
-                    <input type="text" class="form-control" id="pro_cat" name="pro_title" placeholder="Enter Product category" >
+                    <input type="text" class="form-control" id="pro_cat" name="pro_cat" placeholder="Enter Category Title" >
                 </div>
             </div>
             <div class="row my-3">

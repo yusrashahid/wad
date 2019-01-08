@@ -15,40 +15,35 @@
         }
     </style>
     <?php
-    /**
-     * Created by PhpStorm.
-     * User: l1f16bscs0409
-     * Date: 1/8/2019
-     * Time: 2:13 PM
-     */
+
     require_once "db_connection.php";
     if(isset($_GET['insert_pro'])){
         //getting text data from the fields
-        $pro_title = $_GET['pro_title'];
+        $brand_title = $_GET['brand_title'];
         //getting image from the field
 
 
-        $insert_product = "insert into products (pro_title) 
-                  VALUES ('$pro_title');";
-        $insert_pro = mysqli_query($con, $insert_product);
+        $insert_brand = "insert into brand (brand_title) 
+                  VALUES ('$brand_title');";
+        $insert_pro = mysqli_query($con, $insert_brand);
 
     }
     ?>
 </head>
 <body>
 <div class="container">
-    <h1 class="text-center my-4"><i class="fas fa-plus fa-md"></i> <span class="d-none d-sm-inline"> Add New </span> Product </h1>
-    <form action="insert_product.php" method="post" enctype="multipart/form-data">
+    <h1 class="text-center my-4"><i class="fas fa-plus fa-md"></i> <span class="d-none d-sm-inline"> Add New </span> Brand </h1>
+    <form action="insert_product.php"  enctype="multipart/form-data">
         <div class="row">
             <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-2 ">
-                <label for="pro_title" class="float-md-right"> <span class="d-sm-none d-md-inline"> Product </span> Title:</label>
+                <label for="pro_brand" class="float-md-right"> <span class="d-sm-none d-md-inline"> brand </span> Title:</label>
             </div>
             <div class="col-sm-9 col-md-8 col-lg-4 col-xl-4">
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fas fa-file-signature"></i></div>
                     </div>
-                    <input type="text" class="form-control" id="pro_title" name="pro_title" placeholder="Enter Product Title" >
+                    <input type="text" class="form-control" id="pro_brand" name="pro_brand" placeholder="Enter Brand Title" >
                 </div>
             </div>
             <div class="row my-3">
