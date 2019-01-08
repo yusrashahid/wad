@@ -1,5 +1,5 @@
 <?php
-require_once "db_connection2.php";
+require_once "db_connection.php";
 
 function getCats(){
     global $con;
