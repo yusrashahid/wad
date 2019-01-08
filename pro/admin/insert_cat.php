@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Insert Product</title>
+    <title>Insert Category</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
@@ -16,8 +16,8 @@
     </style>
     <?php
 
-    require_once "db_connection.php";
-    if(isset($_GET['insert_pro'])){
+    require "db_connection.php";
+    if(!isset($_POST['insert_pro'])){
         //getting text data from the fields
         $cat_title = $_POST['cat_title'];
         //getting image from the field
@@ -33,7 +33,7 @@
 <body>
 <div class="container">
     <h1 class="text-center my-4"><i class="fas fa-plus fa-md"></i> <span class="d-none d-sm-inline"> Add New </span> Category </h1>
-    <form action="insert_product.php" method="post" enctype="multipart/form-data">
+    <form action="insert_cat.php" method="post">
         <div class="row">
             <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-2 ">
                 <label for="pro_cat" class="float-md-right"> <span class="d-sm-none d-md-inline"> Category </span> Title:</label>
@@ -43,7 +43,7 @@
                     <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fas fa-file-signature"></i></div>
                     </div>
-                    <input type="text" class="form-control" id="pro_cat" name="pro_cat" placeholder="Enter Category Title" >
+                    <input type="text" class="form-control" id="cat_title" name="cat_title" placeholder="Enter Category Title" >
                 </div>
             </div>
             <div class="row my-3">
